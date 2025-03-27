@@ -52,7 +52,7 @@ class VideoProvider : ContentProvider(), KoinComponent {
 
         return try {
             // 直接使用ContentResolver打开固定URI指向的文件的ParcelFileDescriptor
-            context.contentResolver.openFileDescriptor(fixedUri, mode)
+            context!!.contentResolver.openFileDescriptor(fixedUri, mode)
         } catch (e: Exception) { // 捕获所有异常，包括FileNotFoundException
             Log.e("Error", "打开文件失败: ${e.message}")
             null
